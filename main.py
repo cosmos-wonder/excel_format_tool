@@ -1,5 +1,5 @@
 # This is a sample Python script.
-from operation.transpose import Excel
+from operation.excel.transpose import Excel
 import sys
 
 
@@ -25,4 +25,3 @@ if __name__ == '__main__':
     destination_sheet_name = sys.argv[3]
     test_excel_transpose(file_name, source_sheet_name, destination_sheet_name)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
