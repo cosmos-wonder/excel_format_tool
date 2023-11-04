@@ -23,7 +23,7 @@ class Excel(object):
     def print_excel_info(self):
         print('file name is %s' % self.file_name)
 
-    def read(self, sheet_name):
+    def read_and_assemble_data(self, sheet_name):
         sheet_content = self.data[sheet_name]
 
         new_content = [['Employee / Vendor / Client Name', 'Date', 'Task Name', 'Quantity', 'Project Description']]
@@ -47,12 +47,8 @@ class Excel(object):
         self.new_content = new_content
         print('now num is %s' % count)
 
-    def write(self, sheet_name):
-        self.data.create_sheet(title=sheet_name)
-        self.data.save(self.file_name)
-
-        self.sheet_names = self.data.sheetnames
-        new_sheet = self.data[sheet_name]
+    def write_to_destination_sheet(self, sheet_name):
+        new_sheet = self.data.create_sheet(title=sheet_name)
 
         for row in self.new_content:
             new_sheet.append(row)
